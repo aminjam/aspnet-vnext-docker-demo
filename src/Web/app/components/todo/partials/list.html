@@ -1,0 +1,18 @@
+<div class="row">
+    <table id="table-style" class="table table-condensed table-striped">
+        <thead>
+            <tr>
+                <th class="col-md-5">Title</th>
+                <th class="col-md-5">Category</th>
+                <th class="col-md-2">Done</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="todo in todos">
+                <td>{{todo.title}}</td>
+                <td>{{todo.category}}</td>
+                <td>{{todo.isDone}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

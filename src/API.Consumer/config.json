@@ -1,0 +1,6 @@
+﻿{
+    "data": {
+        "connection": "Server=10.0.1.10:27017",
+        "name": "aspnet_demo"
+    }
+}
