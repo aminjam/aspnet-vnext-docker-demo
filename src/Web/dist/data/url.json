@@ -1,18 +1,18 @@
 {
-    "domains": {
-        "consumer": "aspnet-todo-demo-api.com",
-        "admin": "http://api.admin"
-    },
-    "endpoints": {
-        "consumer": {
-            "todoFind": {
-                "method": "GET",
-                "url": "/api/todo"
-            },
-            "todoCreate": {
-                "method": "POST",
-                "url": "/api/todo"
-            }
-        }
+  "domains": {
+    "consumer": "http://aspnet-todo-demo-api.com",
+    "admin": "http://api.admin"
+  },
+  "endpoints": {
+    "consumer": {
+      "todoFind": {
+        "method": "GET",
+        "url": "/api/todo"
+      },
+      "todoCreate": {
+        "method": "POST",
+        "url": "/api/todo"
+      }
     }
+  }
 }
