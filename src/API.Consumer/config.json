@@ -1,6 +1,5 @@
-﻿{
-    "data": {
-        "connection": "Server=10.0.1.10:27017",
-        "name": "aspnet_demo"
-    }
+﻿
+{
+  "mongoConnection": "Server=10.0.1.10:27017",
+  "mongoDbName": "aspnet_demo"
 }

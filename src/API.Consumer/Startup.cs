@@ -35,8 +35,8 @@ namespace API.Consumer
         {
             services.Configure<SiteSettings>(settings =>
             {
-                settings.MongoConnection = Configuration.Get("data:connection");
-                settings.MongoDatabase = Configuration.Get("data:name");
+                settings.MongoConnection = Configuration.Get("mongoConnection");
+                settings.MongoDatabase = Configuration.Get("mongoDbName");
             });
             services.AddMvc().Configure<MvcOptions>(options =>
             {
