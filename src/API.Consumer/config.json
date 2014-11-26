@@ -1,5 +1,5 @@
 ﻿
 {
-  "MONGO_CONNECTION": "Server=10.0.1.11:27017",
+  "MONGO_CONNECTION": "mongodb://172.17.8.101:9990",
   "MONGO_DB_NAME": "aspnet_demo"
 }

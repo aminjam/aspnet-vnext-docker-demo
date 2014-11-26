@@ -46,12 +46,13 @@ namespace API.Consumer.Todo
                     _repository.Update(item);
                 else
                     _repository.Add(item);
-
+                /*
                 string url = Url.RouteUrl("GetByIdRoute", new { id = item.Id },
                     Request.Scheme, Request.Host.ToUriComponent());
 
-                Context.Response.StatusCode = 201;
                 Context.Response.Headers["Location"] = url;
+                */
+                Context.Response.StatusCode = 201;
             }
         }
 
