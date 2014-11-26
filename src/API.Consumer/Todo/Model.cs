@@ -9,7 +9,6 @@ namespace API.Consumer.Todo
         [Required]
         public string Title { get; set; }
         public string Category { get; set; }
-
         public bool IsDone { get; set; }
     }
 }

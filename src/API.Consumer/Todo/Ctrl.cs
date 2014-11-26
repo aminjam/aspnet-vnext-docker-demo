@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Mvc;
 using MongoDB.Bson;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
 namespace API.Consumer.Todo
@@ -34,8 +35,9 @@ namespace API.Consumer.Todo
 
         [HttpPost]
         [HttpPut]
-        public void CreateOrUpdate([FromBody] Model item)
+        public void CreateOrUpdate([FromBody] JObject input)
         {
+            var item = input.ToObject<Model>();
             if (!ModelState.IsValid)
             {
                 Context.Response.StatusCode = 400;
@@ -43,15 +45,15 @@ namespace API.Consumer.Todo
             else
             {
                 if (item.Id != ObjectId.Empty)
+                {
                     _repository.Update(item);
+                }
                 else
                     _repository.Add(item);
-                /*
                 string url = Url.RouteUrl("GetByIdRoute", new { id = item.Id },
                     Request.Scheme, Request.Host.ToUriComponent());
 
                 Context.Response.Headers["Location"] = url;
-                */
                 Context.Response.StatusCode = 201;
             }
         }
