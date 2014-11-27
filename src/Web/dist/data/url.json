@@ -1,6 +1,6 @@
 {
     "domains": {
-        "consumer": "@@http://localhost:5004",
+        "consumer": "http://aspnet-todo-demo-api.com",
         "admin": "http://api.admin"
     },
     "endpoints": {
