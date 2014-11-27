@@ -1,11 +1,14 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System.ComponentModel.DataAnnotations;
 
-namespace API.Consumer.Todo
+namespace API.Consumer.todo
 {
     public class Model
     {
-        public ObjectId Id { get; set; }
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
         [Required]
         public string Title { get; set; }
         public string Category { get; set; }

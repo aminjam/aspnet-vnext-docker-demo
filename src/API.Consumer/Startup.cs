@@ -1,4 +1,4 @@
-﻿using API.Consumer.Todo;
+﻿using API.Consumer.todo;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Framework.ConfigurationModel;
@@ -26,7 +26,7 @@ namespace API.Consumer
             {
                 context.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
                 context.Response.Headers.Add("Access-Control-Allow-Headers", new[] { "Origin, X-Requested-With, Content-Type, Accept" });
-                context.Response.Headers.Add("Access-Control-Allow-Methods", new[] { "*" });
+                context.Response.Headers.Add("Access-Control-Allow-Methods", new[] { "GET, POST, PUT, OPTION, DELETE" });
                 return next();
             });
             app.UseMvc();
@@ -56,7 +56,7 @@ namespace API.Consumer
                 options.OutputFormatters.Insert(position, formatter);
             });
 
-            services.AddSingleton<IRepository, Repository>();
+            services.AddSingleton<IRepo, Repo>();
         }
     }
 }

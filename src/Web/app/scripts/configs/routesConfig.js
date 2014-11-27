@@ -9,7 +9,7 @@
 
     function instance($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise('/products');
+        $urlRouterProvider.otherwise('/todo');
 
         $stateProvider
           // HOME STATES AND NESTED VIEWS ========================================
@@ -25,8 +25,13 @@
           })
           .state('todo.create', {
               url: '/create',
-              templateUrl: 'components/todo/partials/create.html',
-              controller: 'todo.createCtrl'
+              templateUrl: 'components/todo/partials/edit.html',
+              controller: 'todo.editCtrl'
+          })
+          .state('todo.edit', {
+              url: '/edit/{id}',
+              templateUrl: 'components/todo/partials/edit.html',
+              controller: 'todo.editCtrl'
           });
 
     }

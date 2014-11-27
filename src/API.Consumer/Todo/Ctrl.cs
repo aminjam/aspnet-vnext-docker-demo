@@ -1,16 +1,15 @@
 ﻿using Microsoft.AspNet.Mvc;
-using MongoDB.Bson;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
-namespace API.Consumer.Todo
+namespace API.Consumer.todo
 {
 
     [Route("api/todo")]
     public class Ctrl : Controller
     {
-        private readonly IRepository _repository;
-        public Ctrl(IRepository repository)
+        private readonly IRepo _repository;
+        public Ctrl(IRepo repository)
         {
             _repository = repository;
         }
@@ -22,7 +21,7 @@ namespace API.Consumer.Todo
         }
 
         [HttpGet("{id}",Name = "GetByIdRoute")]
-        public IActionResult GetById(ObjectId id)
+        public IActionResult GetById(string id)
         {
             var item = _repository.GetById(id);
             if (item == null)
@@ -44,12 +43,13 @@ namespace API.Consumer.Todo
             }
             else
             {
-                if (item.Id != ObjectId.Empty)
+                if (!string.IsNullOrEmpty(item.Id))
                 {
                     _repository.Update(item);
                 }
                 else
                     _repository.Add(item);
+
                 string url = Url.RouteUrl("GetByIdRoute", new { id = item.Id },
                     Request.Scheme, Request.Host.ToUriComponent());
 
@@ -59,7 +59,7 @@ namespace API.Consumer.Todo
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(ObjectId id)
+        public IActionResult Delete(string id)
         {
             _repository.Remove(id);
             return new HttpStatusCodeResult(204);

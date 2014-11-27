@@ -7,10 +7,18 @@
         "consumer": {
             "todoFind": {
                 "method": "GET",
-                "url": "/api/todo"
+                "url": "/api/todo/{id}"
+            },
+            "todoDelete": {
+                "method": "DELETE",
+                "url": "/api/todo/{id}"
             },
             "todoCreate": {
                 "method": "POST",
+                "url": "/api/todo"
+            },
+            "todoUpdate": {
+                "method": "PUT",
                 "url": "/api/todo"
             }
         }

@@ -12,6 +12,10 @@
                 <td>{{todo.title}}</td>
                 <td>{{todo.category}}</td>
                 <td>{{todo.isDone}}</td>
+                <td>
+                <a class="btn btn-warning" ui-sref="todo.edit({id:todo.id})" >Edit</a>
+                <a class="btn btn-danger" ng-click="delete(todo)">Delete</a>
+                </td>
             </tr>
         </tbody>
     </table>

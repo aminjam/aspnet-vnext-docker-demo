@@ -6,20 +6,20 @@ using MongoDB.Driver.Builders;
 using System;
 using System.Collections.Generic;
 
-namespace API.Consumer.Todo
+namespace API.Consumer.todo
 {
-    public interface IRepository
+    public interface IRepo
     {
         IEnumerable<Model> AllItems { get; }
         void Add(Model item);
-        Model GetById(ObjectId id);
+        Model GetById(string id);
         void Update(Model item);
-        void Remove(ObjectId id);
+        void Remove(string id);
     }
 
-    public class Repository : IRepository
+    public class Repo : IRepo
     {
-        public Repository(IServiceProvider serviceProvider)
+        public Repo(IServiceProvider serviceProvider)
         {
             var settings = serviceProvider.GetService<IOptions<SiteSettings>>().Options;
             _db = new MongoClient(settings.MongoConnection).GetServer().GetDatabase(settings.MongoDatabase);
@@ -35,7 +35,7 @@ namespace API.Consumer.Todo
             }
         }
 
-        public Model GetById(ObjectId id)
+        public Model GetById(string id)
         {
             var query = Query<Model>.EQ(e => e.Id, id);
             return _collection.FindOne(query);
@@ -56,7 +56,7 @@ namespace API.Consumer.Todo
             _collection.Update(query, update);
         }
 
-        public void Remove(ObjectId id)
+        public void Remove(string id)
         {
             var query = Query<Model>.EQ(e => e.Id, id);
             _collection.Remove(query);

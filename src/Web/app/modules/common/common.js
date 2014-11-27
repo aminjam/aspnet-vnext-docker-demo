@@ -28,11 +28,14 @@
     //#region Exposed Methods
 
     function activate(promises, id) {
-      return $q.all(promises).then(function() {
+        return $q.all(promises).then(function (results) {
+            var def = $q.defer();
         var data = {
           controllerId: id
         };
         $emit(commonConfig.config.controllerActivateSuccessEvent, data);
+        def.resolve(results);
+        return def.promise;
       });
     }
 
