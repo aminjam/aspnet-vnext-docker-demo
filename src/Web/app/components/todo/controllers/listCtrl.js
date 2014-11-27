@@ -8,13 +8,13 @@
    * e.g. for Profile component and Signup functionality it should be (profile.SignupCtrl) with the same file name.
    */
   var ID = 'todo.listCtrl';
-  var injections = ['$scope', '$http', '$state', 'common', 'utilities'];
+  var injections = ['$scope', '$http', '$state', '$timeout', 'common', 'utilities'];
 
   // Define the controller on the module.
   // Inject the dependencies.
   // Point to the controller definition function.
 
-  function instance($scope, $http, $state, common, utilities) {
+  function instance($scope, $http, $state, $timeout, common, utilities) {
     var log = common.log, endpoints = utilities.endpoints;
     endpoints('consumer.todoFind').then(function (api) {
         $http({
@@ -32,7 +32,9 @@
                 url: api.url.replace('{id}', item.id)
             }).success(function () {
                 log.success('Deleted ' + item.title);
-                $state.forceReload();
+                $scope.todos = $scope.todos.filter(function(i){
+                  return i.id != item.id;
+                });
             });
         });
     };
