@@ -32,7 +32,7 @@
                 url: api.url.replace('{id}', item.id)
             }).success(function () {
                 log.success('Deleted ' + item.title);
-                $state.go($state.current, {}, { reload: true });
+                $state.go('.', {}, { reload: true });
             });
         });
     };
