@@ -17,4 +17,4 @@ like the sample project in aspnet/home. https://github.com/aspnet/Home/blob/mast
 ###Running Web project
 - `grunt serve`
 - `grunt serve:dist` for minified build packages.
-- `DOMAINS_API=http://my.domain.for.api.com grunt serve:dis` for building minified packages for another DNS record.
+- `DOMAINS_API=http://aspnet-todo-demo-api.com grunt serve:dist` for building minified packages for another DNS record.
