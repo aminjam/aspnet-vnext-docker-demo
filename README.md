@@ -1,7 +1,7 @@
 aspnet-vnext-docker-demo
 ========================
 
-ASP.NET VNext Demo for Docker with API,Web, and MongoDB
+ASP.NET VNext Demo for Docker with API,Web, and MongoDB. Here is a post using this repo. http://blog.aminjam.com/aspnet-5-docker-orchestration-todo-app/
 
 You can find `hipops` scenario for Docker Orchestration here. https://github.com/aminjam/hipops-examples/tree/master/scenarios/aspnet-todo
 
